@@ -63,6 +63,7 @@ vi ~/.muttrc在结尾处添加以下代码：
 
 退出后，测试Mutt发送邮件。
 发送邮件::
-    mutt 798423939@qq.com -s “mutt测试” -a ~/.muttrc
+    
+   mutt 798423939@qq.com -s “mutt测试” -a ~/.muttrc
 
 向QQ邮箱中发送一封主题是“mutt测试”附件是.muttrc的邮件。
