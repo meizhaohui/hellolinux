@@ -140,22 +140,43 @@ VIM的模式
 -  set nu　　　　　　“显示行号
 -  set bg=dark　　　　“显示不同的底色色调
 -  set softtabstop=4   “统一缩进为4
--  set tabstop=4　　　　“设置Tab宽度
--  set shiftwidth=4　　　　“设置每一级缩进的宽度
+-  set tabstop=4　　　　"设置Tab宽度
+-  set shiftwidth=4　　　　"设置每一级缩进的宽度
 -  set fileencodings=utf-8,gbk,gb18030,gk2312
--  syntax on　　　　　　“语法高亮
--  set showcmd　　　　“输入的命令显示出来，看的清楚些
--  set clipboard+=unnamed　　　　“共享剪贴板
--  set cursorline　　　　“突出显示当前行
--  set noeb　　　　　　“去掉输入错误的提示声音
--  set confirm　　　　　　“在处理未保存或只读文件的时候，弹出确认
--  set autoindent　　　　“设置自动缩进
--  set cindent
--  set noexpandtab　　“不要用空格代替制表符
--  set smarttab　　　　“在行和段开始处使用制表符
--  set laststatus=2　　　　“总是显示状态栏
--  filetype on　　　　　　“侦测文件类型
--  filetype plugin on　　“载入文件类型插件
+-  syntax on　　　　　　"语法高亮
+-  set showcmd　　　　"输入的命令显示出来，看的清楚些
+-  set clipboard+=unnamed　　　　"共享剪贴板
+-  set cursorline　　　　"突出显示当前行
+-  set noeb　　　　　　"去掉输入错误的提示声音
+-  set confirm　　　　　　"在处理未保存或只读文件的时候，弹出确认
+-  set autoindent　　　　"设置自动缩进
+-  set cindent       "设置自动缩进
+-  set expandtab　　"用空格代替制表符
+-  set smarttab　　　　"在行和段开始处使用制表符
+-  set laststatus=2　　　　"总是显示状态栏
+
+~/.vimrc配置文件内容如下::
+
+   set hlsearch
+   set backspace=2
+   set autoindent
+   set ruler
+   set showmode
+   set nu
+   set bg=dark
+   set softtabstop=4
+   set shiftwidth=4
+   set fileencodings=utf-8,gbk,gb18030,gk2312
+   syntax on
+   set showcmd
+   set clipboard+=unnamed
+   set cursorline
+   set confirm
+   set autoindent
+   set cindent 
+   set expandtab                                                            
+   set laststatus=2
+
 
 可视模式
 --------
