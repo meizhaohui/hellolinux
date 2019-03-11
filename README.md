@@ -1,5 +1,9 @@
 # hellolinux
 Recording the process of learning Linux
+Visit the Docs: https://hellolinux.readthedocs.io/zh_CN/latest/
+
+[![Documentation Status](https://readthedocs.org/projects/hellolinux/badge/?version=latest)](https://hellolinux.readthedocs.io/zh_CN/latest/?badge=latest)
+      
 # Contents  
 - [Use help](./source/01_use_help.rst) <!-- markdown comment： link to other file in this repo -->
 - [Vim](./source/02_how_to_use_vim.rst)
