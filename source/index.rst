@@ -14,4 +14,4 @@ Linux学习笔记
     04_wildcard_regular_expression_in_bash_script
     05_how_to_install_htop_in_linux
     06_echo_color_font
-    
+    07_forbit_use_rm_to_delete_root_path
