@@ -13,3 +13,4 @@ Visit the Docs: https://hellolinux.readthedocs.io/zh_CN/latest/
 - [Echo font color](./source/06_echo_color_font.rst)
 - [rm -rf / is a tragedy](./source/07_forbit_use_rm_to_delete_root_path.rst)
 - [Use Hotkey in Terminal](./source/08_hotkey_in_terminal.rst)
+- [Enhance CentOS7 secure](./source/09_enhance_centos_secure.md)
