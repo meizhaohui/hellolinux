@@ -16,3 +16,4 @@ Linux学习笔记
     06_echo_color_font
     07_forbit_use_rm_to_delete_root_path
     08_hotkey_in_terminal 
+    09_enhance_centos_secure

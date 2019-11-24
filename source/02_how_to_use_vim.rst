@@ -242,3 +242,135 @@ VIM的模式
 -  ctrl+w+k 可依次在多个视窗间进行从下到上切换（先按ctrl+w，松开后，再按k）。
 -  ctrl+w+j  可依次在多个视窗间进行从上到下切换（先按ctrl+w，松开后，再按j）。
 -  ctrl+w+q  关闭当前视窗下面的视窗（先按ctrl+w，松开后，再按q）。
+
+增加编程语言模板的.vimrc配置文件
+------------------------------------------
+
+~/.vimrc配置文件内容如下::
+
+    execute pathogen#infect()
+    syntax on
+    filetype plugin indent on
+    set hlsearch
+    set backspace=2
+    set autoindent
+    set ruler
+    set showmode
+    set nu
+    set bg=dark
+    set ts=4
+    set softtabstop=4
+    set shiftwidth=4
+    set fileencodings=utf-8,gbk,gb18030,gk2312
+    syntax on
+    set showcmd
+    set clipboard+=unnamed
+    set cursorline
+    set confirm
+    set autoindent
+    set cindent 
+    set expandtab
+    set laststatus=2
+
+
+    "SET Comment START
+
+    autocmd BufNewFile *.c,*.py,*.go,*.sh exec ":call SetComment()" |normal 10Go
+
+    func SetComment()
+        if expand("%:e") == 'c'
+            call setline(1, "/*")
+            call append(1, ' *      Filename: '.expand("%"))
+            call append(2, ' *        Author: Zhaohui Mei<mzh.whut@gmail.com>')
+            call append(3, ' *   Description:      ')
+            call append(4, ' *   Create Time: '.strftime("%Y-%m-%d %H:%M:%S"))
+            call append(5, ' * Last Modified: '.strftime("%Y-%m-%d %H:%M:%S"))
+            call append(6, ' */')
+            call append(7, '')
+            call append(8, '')
+            call append(9, '')
+            call append(10, '')
+        elseif expand("%:e") == 'go'
+            call setline(1, "/*")
+            call append(1, ' *      Filename: '.expand("%"))
+            call append(2, ' *        Author: Zhaohui Mei<mzh.whut@gmail.com>')
+            call append(3, ' *   Description:      ')
+            call append(4, ' *   Create Time: '.strftime("%Y-%m-%d %H:%M:%S"))
+            call append(5, ' * Last Modified: '.strftime("%Y-%m-%d %H:%M:%S"))
+            call append(6, ' */')
+            call append(7, 'package main')
+            call append(8, '')
+            call append(9, 'import "fmt"')
+            call append(10, '')
+            call append(11, 'func main() {')
+            call append(12, '    fmt.Println("vim-go")')
+            call append(13, '}')
+        elseif expand("%:e") == 'py'
+            call setline(1, '#!/usr/bin/python3')
+            call append(1, '"""')
+            call append(2, '#      Filename: '.expand("%"))
+            call append(3, '#        Author: Zhaohui Mei<mzh.whut@gmail.com>')
+            call append(4, '#   Description:      ')
+            call append(5, '#   Create Time: '.strftime("%Y-%m-%d %H:%M:%S"))
+            call append(6, '# Last Modified: '.strftime("%Y-%m-%d %H:%M:%S"))
+            call append(7, '"""')
+            call append(8, '')
+            call append(9, '')
+            call append(10, '')
+        elseif expand("%:e") == 'sh'
+            call setline(1, '#!/bin/bash')
+            call append(1, '##################################################')
+            call append(2, '#      Filename: '.expand("%"))
+            call append(3, '#        Author: Zhaohui Mei<mzh.whut@gmail.com>')
+            call append(4, '#   Description:      ')
+            call append(5, '#   Create Time: '.strftime("%Y-%m-%d %H:%M:%S"))
+            call append(6, '# Last Modified: '.strftime("%Y-%m-%d %H:%M:%S"))
+            call append(7, '##################################################')
+            call append(8, '')
+            call append(9, '')
+            call append(10, '')
+        endif
+    endfunc
+    map <F2> :call SetComment()<CR>:10<CR>o
+
+    "SET Comment END
+
+    "SET Last Modified Time START
+
+    func DataInsert()
+        if expand("%:e") == 'c' || expand("%:e") == 'go'
+            call cursor(6, 1)
+            if search ('Last Modified') != 0
+                let line = line('.')
+                call setline(line, ' * Last Modified: '.strftime("%Y-%m-%d %H:%M:%S"))
+            endif
+        elseif expand("%:e") == 'py' || expand("%:e") == 'sh'
+            call cursor(7, 1)
+            if search ('Last Modified') != 0
+                let line = line('.')
+                call setline(line, '# Last Modified: '.strftime("%Y-%m-%d %H:%M:%S"))
+            endif
+        endif
+    endfunc
+    autocmd FileWritePre,BufWritePre *.c,*.py,*.go,*.sh ks|call DataInsert() |'s
+    "SET Last Modified Time END
+
+    "" refer:https://blog.csdn.net/qq844352155/article/details/50513072
+
+使用vim新建test.go后显示如下::
+
+    1 /*                                                                                                                      
+    2  *      Filename: test.go
+    3  *        Author: Zhaohui Mei<mzh.whut@gmail.com>
+    4  *   Description:      
+    5  *   Create Time: 2019-11-24 23:52:56
+    6  * Last Modified: 2019-11-24 23:52:56
+    7  */
+    8 package main
+    9 
+    10 import "fmt"
+    11 
+    12 
+    13 func main() {
+    14     fmt.Println("vim-go")
+    15 }

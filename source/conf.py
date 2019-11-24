@@ -15,6 +15,7 @@
 # import os
 # import sys
 import sphinx_rtd_theme
+from recommonmark.parser import CommonMarkParser
 # sys.path.insert(0, os.path.abspath('.'))
 
 
@@ -168,3 +169,8 @@ html_logo = './_static/images/logo.png'
 
 # do not show the rst link
 html_show_sourcelink = True
+
+# support Markdown file
+source_parsers = {
+    '.md': CommonMarkParser,
+}
