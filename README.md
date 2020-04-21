@@ -1,4 +1,6 @@
 # hellolinux
+Archived. Please see the [https://github.com/meizhaohui/vueblog](https://github.com/meizhaohui/vueblog)
+
 Recording the process of learning Linux
 Visit the Docs: https://hellolinux.readthedocs.io/zh_CN/latest/
 
